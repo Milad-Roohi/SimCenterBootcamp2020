@@ -1,9 +1,14 @@
 
+COMPILER = g++
 FLAGS = -D_DEBUG
 
 all:
-	g++ $(FLAGS) Vector.cpp -c -o Vector.o
-	g++ $(FLAGS) main.cpp Vector.o
+	$(COMPILER) $(FLAGS) Vector.cpp -c -o Vector.o
+	$(COMPILER) $(FLAGS) Matrix.cpp -c -o Matrix.o
+	$(COMPILER) $(FLAGS) main.cpp Vector.o Matrix.o
+
+test: all
+	./a.out
 
 clean:
 	rm *~ *.o

@@ -1,11 +1,15 @@
 #include <iostream>
+
 #include "Vector.h"
+#include "Matrix.h"
 
 int main(int argc, char **argv) {
 
   // create 2 vectors
   Vector a(4);
   Vector b(4);
+
+  std::cerr << "a: "; a.print();
 
   //
   // set a = 1, b = 20+i
@@ -25,6 +29,8 @@ int main(int argc, char **argv) {
 
   // error check
   b(4) = 24;
+
+  std::cout << "b: "; b.print();
 
   //
   // new vector c = a + b, print c and norm of c
@@ -46,4 +52,14 @@ int main(int argc, char **argv) {
 
   Vector e = c + d;
   std::cout << "e = c + d: "; e.print();
+
+  Matrix m(4,4);
+  for (int i=0; i<4; i++)
+    m(i,i)=2;
+
+  m(0,3) = 2;
+
+  Vector f =  m * a;
+
+  std::cout << "f = A*a: "; f.print();  
 }
